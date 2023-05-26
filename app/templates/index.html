@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" href='/static/main.css' />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+  </head>
+  <div class="container">
+    <div class="message signup">
+      <button class="button" id="back"> Another one!</button>
+    </div>
+    <div class="form form--signup">
+      <div class="form--heading">Shorten your URL!</div>
+      <form autocomplete="off">
+        <input type="text" placeholder="Enter URL here">
+        <button class="button">Pipsqueak!</button>
+      </form>
+    </div>
+    <div class="form form--login">
+      <div class="form--heading">Here is your link!</div>
+      <form autocomplete="off">
+        <input type="text" placeholder="Name">
+      </form>
+    </div>
+  </div>
+</html>
