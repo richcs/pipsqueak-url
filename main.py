@@ -1,21 +1,46 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request, redirect, render_template
+
+import data
+
+TEXTFILE_NAME = "db.txt"
+
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return render_template('index.html')
+
+
+@app.route("/favicon.ico")
+def favicon():
+    return "favicon"
+
+
+@app.route("/<short_url>")
+def redirect_to_long_url(short_url):
+    d = data.get(TEXTFILE_NAME)
+    long_url = d[short_url]
+    if not long_url.startswith("http://") or not long_url.startswith("https://"):
+        long_url = "http://" + long_url
+    return redirect(long_url, code=301)
 
 
 @app.get("/api/v1/pipsqueak")
 def get():
     args = request.args
-    return "GET"
+    short_url = args["url"]
+    d = data.get(TEXTFILE_NAME)
+    long_url = d[short_url]
+    return long_url
 
 
 @app.post("/api/v1/pipsqueak")
-def shorten():
+def shorten_url():
     args = request.args
-    return "POST"
+    long_url = args["url"]
+    short_url = data.generate_short_id()
+    data.write(TEXTFILE_NAME, short_url, long_url)
+    return short_url
+

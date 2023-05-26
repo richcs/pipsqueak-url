@@ -1,0 +1,5 @@
+# Python related folders/files
+__pycache__
+
+# Application files
+db.txt
