@@ -2,4 +2,4 @@
 __pycache__
 
 # Application files
-app/db.txt
+app/localdb.txt

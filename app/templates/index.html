@@ -5,20 +5,20 @@
     <script src="{{url_for('static', filename='main.js')}}"></script>
   </head>
   <div class="container">
-    <div class="message signup">
-      <button class="button" id="back"> Another one!</button>
+    <div class="message long">
+      <button class="button" id="back" hidden> Another one!</button>
     </div>
-    <div class="form form--signup">
-      <div class="form--heading">Shorten your URL!</div>
-      <form autocomplete="off">
-        <input type="text" placeholder="Enter URL here">
-        <button class="button">Pipsqueak!</button>
+    <div class="form form--long">
+      <div class="form--heading">Shorten your URL</div>
+      <form autocomplete="off" method="post">
+        <input type="text" id="longurl" placeholder="Enter URL here">
+        <button class="button" id="post">Pipsqueak!</button>
       </form>
     </div>
-    <div class="form form--login">
+    <div class="form form--short">
       <div class="form--heading">Here is your link!</div>
       <form autocomplete="off">
-        <input type="text" placeholder="Name">
+        <input type="text" id="shorturl">
       </form>
     </div>
   </div>

@@ -50,12 +50,12 @@ body {
   margin: 5px 0;
 }
 
-.signup:before {
+.long:before {
   opacity: 0.3;
   left: 0;
 }
 
-.login:before {
+.short:before {
   opacity: 0.3;
   left: 100%;
 }
@@ -70,7 +70,7 @@ body {
   color: #129D72;
   font-family: "Source Sans Pro", sans-serif;
 }
-.form--signup {
+.form--long {
   border-right: 1px solid #999;
 }
 

@@ -2,7 +2,8 @@ from flask import Flask, request, redirect, render_template
 
 import data
 
-TEXTFILE_NAME = "db.txt"
+TEXTFILE_NAME = "localdb.txt"  # for dev purposes only
+HOST = "http://127.0.0.1:5000/"  # TODO: change this
 
 
 app = Flask(__name__)
@@ -42,5 +43,5 @@ def shorten_url():
     long_url = args["url"]
     short_url = data.generate_short_id()
     data.write(TEXTFILE_NAME, short_url, long_url)
-    return short_url
+    return HOST + short_url
 
